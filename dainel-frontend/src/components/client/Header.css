@@ -1,0 +1,47 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.nav-sections {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+}
+
+.nav-sections button {
+    border: none;
+    border-radius: 5px;
+    padding: 4px 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #ffffff;
+
+}
+
+.nav-sections button:hover {
+    background-color: rgb(8, 8, 31);
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+
+    .nav-sections {
+        margin-top: 1rem;
+
+    }
+}
+
+@media screen and (max-width: 668px) {
+
+    .nav-sections {
+        gap: 0.3rem;
+    }
+}

@@ -1,0 +1,81 @@
+.details-main {
+    height: max-content;
+    border-radius: 12px;
+    padding: 1.5rem;
+    background-color: #fafafa;
+    margin: 0 auto;
+    border-radius: 1rem;
+
+}
+
+.hero-account-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* .hero-account-details>p {
+
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+} */
+
+/* .hero-account-details>p svg {
+    font-size: 1.5rem;
+    color: #666;
+} */
+
+/* .hero-account-details>div>p:first-child {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #666;
+    margin: 0;
+} */
+
+/* .hero-account-details>div>p:last-child {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #333;
+    margin: 0;
+} */
+
+
+/* .hero-account-details>div:last-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2rem 0;
+} */
+
+/* .hero-account-details>div:last-child>div {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #666;
+} */
+
+.hero-account-details>div:last-child>button {
+    background-color: #f5c518;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+.hero-account-details>div:last-child>button:hover {
+    background-color: #e0b015;
+}
+
+
+@media screen and (max-width: 992px) {
+    .details-main {
+        margin-top: 14px;
+    }
+}

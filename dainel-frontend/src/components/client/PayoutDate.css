@@ -1,0 +1,18 @@
+.payout-date-main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    background-color: #fafafa;
+
+}
+
+.calender-icon {
+    color: rgb(31, 116, 212);
+    margin-right: 0px;
+    font-size: 40px;
+
+}
