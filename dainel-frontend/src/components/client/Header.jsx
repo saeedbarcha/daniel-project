@@ -20,7 +20,7 @@ const Header = () => {
       // Clear localStorage and dispatch logout action
       localStorage.clear();
       dispatch(logout());
-      navigate("/admin-login"); // Admins go to admin login
+      navigate("/"); // Admins go to admin login
     } catch (error) {
       console.error("Logout error:", error);
     } finally {

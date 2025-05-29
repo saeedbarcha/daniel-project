@@ -13,6 +13,7 @@ import AdminDashboard from './pages/admin/adminDashboard';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProfilePage from './pages/profile/profile';
+import PageNotFound from './pages/not_found/pagenotFound';
 
 const App = () => {
 
@@ -30,25 +31,27 @@ const App = () => {
   
     {
       path: "/affiliates-page",
-      element: <ProtectedRoute element={<Affiliates />} redirectTo="/affiliates-login" />
+      element: <ProtectedRoute element={<Affiliates />} redirectTo="/affiliate-login" />
     },
 
     {
-      path: "/affiliates-login",
+      path: "/affiliate-login",
       element: <AffiliatesLogin />,
     },
     {
-      path: "/admin-login",
+      path: "/",
       element: <AdminLogin />,
     },
     {
       path: "/admin-dashboard",
-      element: <ProtectedRoute element={<AdminDashboard />} redirectTo="/admin-login" />
+      element: <ProtectedRoute element={<AdminDashboard />} redirectTo="/" />
     },
     {
       path: "/profile-page",
       element:<ProfilePage/>
-    }
+    },
+    { path: "*", element: <PageNotFound /> },
+
  
 
   ])

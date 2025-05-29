@@ -17,11 +17,11 @@ const Header = () => {
   // Determine which user info to display based on route
   const shouldShowName = location.pathname.includes("affiliates-page");
   const displayText = shouldShowName 
-    ? userInfo?.user?.name || userInfo?.name || "User" 
+    ? userInfo?.user?.role || userInfo?.name || "User" 
     : userInfo?.user?.role || "Admin";
 
   const userInitial = (shouldShowName 
-    ? userInfo?.user?.name?.charAt(0) || userInfo?.name?.charAt(0) || "U"
+    ? userInfo?.user?.role?.charAt(0) || userInfo?.name?.charAt(0) || "U"
     : userInfo?.user?.role?.charAt(0) || "A"
   ).toUpperCase();
 
@@ -30,7 +30,7 @@ const Header = () => {
     try {
       localStorage.clear();
       dispatch(logout());
-      navigate("/admin-login");
+      navigate("/");
     } catch (error) {
       console.error("Logout error:", error);
     } finally {
