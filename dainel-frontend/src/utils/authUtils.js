@@ -3,7 +3,6 @@ export const getAuthToken = () => {
   if (userInfo) {
     try {
       const parsed = JSON.parse(userInfo);
-  console.log('Retrieving userInfo from localStorage:', parsed);
 
       return parsed.access_token;
     } catch (e) {

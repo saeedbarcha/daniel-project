@@ -78,7 +78,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
       }),
       // Debug response
       transformResponse: (response) => {
-        console.log("Affiliates API response:", response);
+     
         return response;
       },
       // Debug errors
@@ -104,7 +104,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
       providesTags: ['Users'],
       // For debugging
       transformResponse: (response) => {
-        console.log("Clients API response:", response);
+ 
         return response;
       },
     }),

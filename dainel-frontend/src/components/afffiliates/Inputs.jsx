@@ -50,7 +50,7 @@ const InputsAffiliates = () => {
   // Update the useEffect to format dates correctly
   useEffect(() => {
     if (editMode && currentClient) {
-      console.log("Setting form for edit mode:", currentClient);
+    
 
       setInputValues({
         name: currentClient.name || "",
@@ -239,7 +239,7 @@ const InputsAffiliates = () => {
 
         const result = await updateAffiliate(updateData).unwrap();
 
-        console.log("Update successful:", result);
+   
         cancelEdit(); // Exit edit mode
 
         showSuccess("Client updated successfully!");
@@ -259,9 +259,8 @@ const InputsAffiliates = () => {
           payment_source: selectedOption || "TRUMP_CARD",
         };
 
-        console.log("Creating client:", registerData);
         const result = await register(registerData).unwrap();
-        console.log("Creation successful:", result);
+ 
 
         showSuccess("Client created successfully!");
       }

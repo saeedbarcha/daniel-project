@@ -40,7 +40,7 @@ const Header = () => {
 
   const menu = (
     <Menu>
-      <Menu.Item key="1" onClick={() => console.log("Settings clicked")}>
+      <Menu.Item key="1" >
         <Link to={"/profile-page"} style={{textDecoration:"none"}}>
             Settings
         </Link>    

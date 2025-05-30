@@ -7,7 +7,6 @@ import trumpCertificate from '../../assets/trump-certificate.jpeg';
 const AssetsCard = ({userData, isLoading, formatDate}) => {
   const [isModalOpen, setModalOpen] = useState(false);
 
-  console.log("dataaaa", userData.payment_source)
   const getImageByPaymentSource = () => {
     const source = userData?.payment_source;
     switch (source) {

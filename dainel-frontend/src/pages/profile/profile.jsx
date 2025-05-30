@@ -46,7 +46,7 @@ const ProfilePage = () => {
       };
       const response = await updateUserProfile(updatedData).unwrap();
       dispatch(setCredentials(response));
-      console.log("profile updateed",response)
+   
       toast.success("Profile updated!");
     } catch (err) {
       console.error("Update error:", err?.data || err?.error || err);

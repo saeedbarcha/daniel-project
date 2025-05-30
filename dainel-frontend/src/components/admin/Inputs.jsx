@@ -40,7 +40,7 @@ const InputsAdmin = () => {
   // Update the useEffect to format dates correctly
   useEffect(() => {
     if (editMode && currentAffiliate) {
-      console.log("Setting form for edit mode:", currentAffiliate);
+   
 
       setInputValues({
         email: currentAffiliate.email || "",
@@ -149,10 +149,10 @@ const InputsAdmin = () => {
             updateData.password = inputValues.password;
           }
 
-          console.log("Updating affiliate:", updateData);
+         
           const result = await updateAffiliate(updateData).unwrap();
 
-          console.log("Update successful:", result);
+    
           cancelEdit(); // Exit edit mode
 
           // Show success message
@@ -165,9 +165,9 @@ const InputsAdmin = () => {
             role: "AFFILIATE",
           };
 
-          console.log("Creating affiliate:", registerData);
+        
           const result = await register(registerData).unwrap();
-          console.log("Creation successful:", result);
+   
 
           // Show success message
           showSuccess("Affiliate created successfully!");

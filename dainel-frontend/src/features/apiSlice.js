@@ -11,7 +11,6 @@ export const apiSlice = createApi({
         const token = getAuthToken();
         if (token) {
           headers.set('Authorization', `Bearer ${token}`);
-          console.log(`Auth header set for ${endpoint}`);
         } else {
           console.warn(`No auth token for ${endpoint}`);
         }

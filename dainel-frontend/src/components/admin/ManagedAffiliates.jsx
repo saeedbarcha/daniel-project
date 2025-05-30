@@ -6,8 +6,7 @@ import { AffiliateContext } from '../../context/AffiliateContext';
 const ManagedAffiliatesAdmin = () => {
     const { startEdit } = useContext(AffiliateContext);
     const { data: affiliates, isLoading, isError, error, refetch } = useGetAffiliatesQuery();
-    
-  console.log("data", affiliates)
+
     // Show loading state
     if (isLoading) {
         return (
