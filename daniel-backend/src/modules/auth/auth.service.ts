@@ -70,11 +70,11 @@ export class AuthService {
         return { message: 'Logged out successfully' };
     }
 
-    async register(user: User, registerDto: RegisterDto): Promise<Omit<User, 'password'>> {
+    async register(loginUser: User, registerDto: RegisterDto): Promise<Omit<User, 'password'>> {
         if (registerDto.role === UserRoleEnum.AFFILIATE) {
-            throwIfError(user.role !== UserRoleEnum.ADMIN, 'Only admins can register affiliates.');
+            throwIfError(loginUser.role !== UserRoleEnum.ADMIN, 'Only admins can register affiliates.');
         } else if (registerDto.role === UserRoleEnum.CLIENT) {
-            throwIfError(user.role !== UserRoleEnum.AFFILIATE, 'Only affiliates can register clients.');
+            throwIfError(loginUser.role !== UserRoleEnum.AFFILIATE, 'Only affiliates can register clients.');
         } else {
             throwIfError(true, 'You are not allowed to register this user type.');
         }
@@ -121,7 +121,7 @@ export class AuthService {
                 clientInfo.payout_amount = rest?.payout_amount || 0;
                 clientInfo.payment_source = rest?.payment_source;
 
-                clientInfo.affiliate_id = user;
+                clientInfo.affiliate_id = loginUser;
 
                 if (attachment_id) {
                     const attachment = await queryRunner.manager.findOne(Attachment, { where: { id: attachment_id } });
@@ -151,9 +151,6 @@ export class AuthService {
             } else if (error.detail && error.detail.includes('phone')) {
                 throw new ConflictException('Phone number is already in use.');
             }
-            // else if (error.detail && error.detail.includes('Failed to send email')) {
-            //     throw new InternalServerErrorException('Failed to send activation email, user registration failed.');
-            // } 
             else if (error.code === '23505') {
                 throw new BadRequestException('Duplicate entry detected. Please ensure that the provided information is unique.');
             } else {

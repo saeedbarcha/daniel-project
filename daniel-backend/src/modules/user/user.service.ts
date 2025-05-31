@@ -35,13 +35,6 @@ export class UserService {
     private readonly dataSource: DataSource,
   ) { }
 
-
-  private isPasswordValid(password: string): boolean {
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,20}$/;
-    return passwordRegex.test(password);
-  }
-
   async updateUser(
     updateUserDto: UpdateUserDto,
     user: User,
@@ -280,70 +273,44 @@ export class UserService {
     return result;
   }
 
-  async getAllClients(user: User, affiliateId?: number): Promise<any[]> {
-    console.log('Service method called with user:', user.id, 'role:', user.role, 'affiliateId:', affiliateId);
-    
-    // Allow both AFFILIATE and ADMIN roles to access clients
-    if (user.role !== UserRoleEnum.AFFILIATE && user.role !== UserRoleEnum.ADMIN) {
-      throw new UnauthorizedException('Only affiliate or admin can access clients.');
-    }
-
-    // If no affiliateId is provided and user is an affiliate, use their ID
-    if (!affiliateId && user.role === UserRoleEnum.AFFILIATE) {
-      affiliateId = user.id;
-      console.log('Using current affiliate ID:', affiliateId);
-    }
-
-    // Find client users based on role
-    let clientsQuery = this.userRepository
-      .createQueryBuilder('user')
-      .where('user.role = :role', { role: UserRoleEnum.CLIENT })
-      .andWhere('user.is_deleted = :isDeleted', { isDeleted: false });
-
-    // If affiliateId is provided, we need to filter by that specific affiliate
-    if (affiliateId) {
-      console.log('Filtering clients by affiliate ID:', affiliateId);
-      
-      try {
-        // Get client IDs that have the specified affiliate ID
-        const clientInfos = await this.clientInfoRepository.find({
-          where: { affiliate_id: { id: affiliateId } },
-          relations: ['user'],
-        });
-        
-        console.log('Found client infos:', clientInfos.length);
-        
-        // Extract the user IDs from the client info records
-        const clientUserIds = clientInfos.map(info => info.user.id);
-        console.log('Client user IDs:', clientUserIds);
-        
-        // If no clients found for this affiliate, return empty array
-        if (clientUserIds.length === 0) {
-          console.log('No clients found for this affiliate');
-          return [];
-        }
-        
-        // Add filter for specific client IDs
-        clientsQuery = clientsQuery.andWhere('user.id IN (:...clientUserIds)', { clientUserIds });
-      } catch (error) {
-        console.error('Error filtering clients by affiliate:', error);
-        return [];
-      }
-    }
+  async getAllClients(user: User): Promise<any[]> {
+    throwIfError(user.role !== UserRoleEnum.AFFILIATE, 'Only affiliate can access clients.', UnauthorizedException);
     
     try {
-      const clients = await clientsQuery.getMany();
-      console.log('Total clients found:', clients.length);
-
-      // Use findUserById for structured data
-      const result = [];
-      for (const client of clients) {
-        result.push(await this.findUserById(client.id));
+      // Query the client_info table to find clients associated with this affiliate
+      const clientInfos = await this.clientInfoRepository
+        .createQueryBuilder('clientInfo')
+        .leftJoinAndSelect('clientInfo.user', 'user')
+        .where('clientInfo.affiliate_id = :affiliateId', { affiliateId: user.id })
+        .andWhere('user.role = :role', { role: UserRoleEnum.CLIENT })
+        .andWhere('user.is_deleted = :isDeleted', { isDeleted: false })
+        .getMany();
+      
+      
+      if (clientInfos.length === 0) {
+        console.log("No clients found for this affiliate");
+        return [];
       }
-      console.log('Returning clients:', result.length);
+      
+      // Extract the client user IDs
+      const clientIds = clientInfos.map(info => info.user.id);
+
+      // Get detailed client data
+      const result = [];
+      for (const clientId of clientIds) {
+        const clientData = await this.findUserById(clientId);
+        
+        // Set the affiliate property to the current affiliate
+        clientData.affiliate = {
+          id: user.id,
+          name: user.name || user.email, // Use email as fallback if name is null
+          email: user.email
+        };
+        
+        result.push(clientData);
+      }
       return result;
     } catch (error) {
-      console.error('Error getting clients:', error);
       return [];
     }
   }

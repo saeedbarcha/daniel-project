@@ -33,7 +33,7 @@ export class ClientInfo extends DefaultEntity {
     @JoinColumn({ name: 'attachment_id' })
     attachment: Attachment;
 
-    @OneToOne(() => User, { nullable: true })
+    @ManyToOne(() => User, { nullable: true })
     @JoinColumn({ name: 'affiliate_id' })
     affiliate_id: User;
 

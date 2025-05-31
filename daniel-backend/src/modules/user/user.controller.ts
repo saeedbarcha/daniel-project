@@ -30,21 +30,9 @@ export class UserController {
   @UseGuards(AuthGuard('jwt'))
   @Get('clients')
   async getAllClients(
-    @GetUser() user: User, 
-    @Query('affiliateId') affiliateId?: string
+    @GetUser() user: User
   ) {
-    console.log('--------- CLIENT REQUEST ---------');
-    console.log('User ID:', user.id);
-    console.log('User Role:', user.role);
-    console.log('Received affiliateId query parameter:', affiliateId);
-    
-    // Convert affiliateId to number if provided
-    const parsedAffiliateId = affiliateId ? parseInt(affiliateId, 10) : undefined;
-    console.log('Parsed affiliateId:', parsedAffiliateId);
-    
-    const result = await this.userService.getAllClients(user, parsedAffiliateId);
-    console.log('Number of clients returned:', result.length);
-    console.log('----------------------------------');
+    const result = await this.userService.getAllClients(user);
     return result;
   }
 
