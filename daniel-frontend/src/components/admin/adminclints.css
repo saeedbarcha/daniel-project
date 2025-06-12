@@ -1,0 +1,20 @@
+.managed-clients-container {
+    border: 1px solid #e9ecef;
+    border-radius: 7px;
+    margin-top: 2rem;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+@media screen and (max-width: 468px) {
+
+    thead,
+    th {
+        font-size: 0.7rem;
+    }
+
+    thead,
+    td {
+        font-size: 0.5rem;
+    }
+}

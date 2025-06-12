@@ -1,0 +1,31 @@
+.header-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logout-button {
+    padding: 6px 10px;
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.logout-button:hover {
+    background-color: rgb(202, 3, 3);
+    transition: background-color 0.3s ease;
+}
+
+
+@media screen and (max-width: 768px) {
+    .header-container {
+        padding: 1rem;
+        padding-bottom: 20px;
+    }
+
+}

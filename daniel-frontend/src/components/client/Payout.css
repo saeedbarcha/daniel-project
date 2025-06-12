@@ -1,0 +1,37 @@
+.payout-main {
+    width: 100%;
+    padding: 2rem;
+    height: max-content;
+    border-radius: 1rem;
+    background-color: #fafafa !important;
+
+}
+
+
+.ant-progress-inner {
+    border-radius: 1rem;
+    overflow: visible !important;
+}
+
+.ant-progress-bg {
+    height: 25px !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: 9999px !important;
+    border-bottom-right-radius: 9999px !important;
+    background-color: rgb(54, 218, 69) !important;
+}
+
+.payout-progress {
+    margin-right: 0px;
+    transform: translatex(80%);
+
+}
+
+.text-progress {
+    text-align: right;
+}
+
+.ant-progress-text {
+    display: none !important;
+}

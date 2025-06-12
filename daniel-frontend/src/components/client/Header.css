@@ -1,0 +1,160 @@
+/* === BASE STYLES === */
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  width: 100%;
+  gap: 10px;
+}
+
+.header-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.right-align {
+  justify-content: flex-end;
+}
+
+.header-img {
+  justify-content: center;
+}
+
+.desktop-logo {
+  display: block;
+  object-fit: contain;
+  /* margin-left: 200px; */
+}
+
+.mobile-logo {
+  display: none;
+  object-fit: contain;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.welcome-text {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  width: 100%;
+}
+
+.nav-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+/* === NAVIGATION BUTTONS === */
+.nav-sections {
+  display: none;
+  position: absolute;
+  top: -16px;
+  right: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  min-width: 180px;
+}
+
+.nav-sections.open {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.nav-sections button {
+  padding: 6px 10px;
+  font-size: 13px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.nav-sections button:hover {
+  background-color: #0a0a1f;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+/* === SMALL SCREENS (<1023px) === */
+@media (max-width: 1022px) {
+  .welcome-text {
+    display: none;
+  }
+
+  .desktop-logo {
+    display: none;
+  }
+
+  .mobile-logo {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .header-box {
+    flex: 1;
+    /* justify-content: center; */
+  }
+
+  .nav-wrapper {
+    justify-content: flex-end;
+  }
+}
+
+/* === LARGE SCREENS (≥1023px) === */
+@media (min-width: 1023px) {
+  .nav-wrapper {
+    position: static;
+    width: auto;
+  }
+
+  .nav-sections {
+    position: static;
+    display: flex !important;
+    flex-direction: row;
+    gap: 8px;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}
