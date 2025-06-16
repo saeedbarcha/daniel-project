@@ -12,7 +12,7 @@ const HeaderAffiliates = () => {
 
   return (
     <div className="affiliate-header">
-      <div className="header-container">
+      <div className="">
         <div>
           <h1>Client Management</h1>
         </div>

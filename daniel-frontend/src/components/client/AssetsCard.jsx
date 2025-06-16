@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './AssetsCard.css';
-import trumpcard from '../../assets//trumpcard.png';
-import trumpAgreement from '../../assets/trump agrement.png';
-import trumpCertificate from '../../assets/trump-certificate.png';
+import trumpcard from '../../assets/card.jpeg';
+import trumpAgreement from '../../assets/aggrement.png';
+import trumpCertificate from '../../assets/certificate.jpeg';
 
-const AssetsCard = ({userData, isLoading, formatDate}) => {
+const AssetsCard = ({ userData, isLoading, formatDate }) => {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const getImageByPaymentSource = () => {
@@ -21,6 +21,20 @@ const AssetsCard = ({userData, isLoading, formatDate}) => {
     }
   };
 
+  const getCardSizeClass = () => {
+    const source = userData?.payment_source;
+    switch (source) {
+      case 'TRUMP_CARD':
+        return 'card-sm';
+      case 'TRUMP_AGREEMENT':
+        return 'card-md';
+      case 'TRUMP_CERTIFICATE':
+        return 'card-lg';
+      default:
+        return 'card-md';
+    }
+  };
+
   const handleImageClick = () => {
     setModalOpen(true);
   };
@@ -30,27 +44,24 @@ const AssetsCard = ({userData, isLoading, formatDate}) => {
   };
 
   const selectedImage = getImageByPaymentSource();
+  const cardSizeClass = getCardSizeClass();
 
   return (
     <div className="assets-container">
-      <div className="card" onClick={handleImageClick}>
+      <div className={`card ${cardSizeClass}`} onClick={handleImageClick}>
         <img src={selectedImage} alt="Trump Document" />
       </div>
 
-     {isModalOpen && (
-  <div className="modal-overlay" onClick={closeModal}>
-    {/* Close button */}
-    <button className="modal-close-button" onClick={closeModal}>
-      &times;
-    </button>
-
-    {/* Modal content, click inside won't close */}
-    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-      <img src={selectedImage} alt="Enlarged Document" />
-    </div>
-  </div>
-)}
-
+      {isModalOpen && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <button className="modal-close-button" onClick={closeModal}>
+            &times;
+          </button>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <img src={selectedImage} alt="Enlarged Document" />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -5,24 +5,36 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  width: 100%;
   gap: 10px;
+  background: #0d1b2a;
+  width: 100%;
+
+   
 }
 
-.header-box {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-}
+
 
 .right-align {
   justify-content: flex-end;
 }
 
 .header-img {
+      margin-left:450px;
   justify-content: center;
+}
+
+
+
+/* === LARGE SCREENS (≥1023px) === */
+@media (max-width: 1024px) {
+  .header-img {
+      margin-left: 2px;
+  /* justify-content: center; */
+}
+
+
+
+
 }
 
 .desktop-logo {

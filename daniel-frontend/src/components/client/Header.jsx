@@ -34,24 +34,51 @@ const Header = () => {
 
   return (
     <div className="header-container">
-    
+      <div className="header-box heading-box">
+        <h2 className="welcome-text">
+          Welcome, {userInfo?.user?.name || userInfo?.name || "Client"}
+        </h2>
+      </div>
 
       <div className="header-box header-img">
         {/* <img src={trumplogo} alt="Logo" className="desktop-logo" width={170} height={90} /> */}
-        <img src={trumplogo_sm} alt="Logo" className="desktop-logo" width={146} height={70} />
-        
-        <img src={trumplogo_sm} alt="Mobile Logo" className="mobile-logo" width={146} height={70} />
+        <img
+          src={trumplogo_sm}
+          alt="Logo"
+          className="desktop-logo"
+          width={214}
+          height={90}
+        />
+
+        <img
+          src={trumplogo_sm}
+          alt="Mobile Logo"
+          className="mobile-logo"
+          width={146}
+          height={70}
+        />
       </div>
 
       <div className="header-box right-align">
-        <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>☰</button>
+        <button
+          className="menu-toggle"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          ☰
+        </button>
       </div>
 
       <div className="nav-wrapper">
         <div className={`nav-sections ${isMenuOpen ? "open" : ""}`}>
-          <button><FaStar /> Premium Payment Plan</button>
-          <button><VscIssueReopened /> Regular Payment Plan</button>
-          <button><AiFillMessage /> Contact Agent</button>
+          <button>
+            <FaStar /> Premium Payment Plan
+          </button>
+          <button>
+            <VscIssueReopened /> Regular Payment Plan
+          </button>
+          <button>
+            <AiFillMessage /> Contact Agent
+          </button>
           <button onClick={handleLogoutClick} disabled={isLoading}>
             {isLoading ? "Logging out..." : "Logout"}
           </button>
