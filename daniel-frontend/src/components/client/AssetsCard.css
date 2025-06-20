@@ -88,15 +88,16 @@
 
 .modal-close-button {
   position: absolute;
-  top: 7px;
-  right: 50px;
-  font-size: 24px;
+  top: 30px;
+  right: 90%;
+  font-size: 35px;
   font-weight: bold;
   color: white;
   background: transparent;
   border: none;
   cursor: pointer;
   z-index: 1100;
+  
 }
 
 /* === Responsive fallback === */
@@ -112,4 +113,12 @@
     max-width: 90vw;
     max-height: 90vh;
   }
+}
+
+@media (max-width: 778) {
+.modal-close-button {
+  top: 12px;
+  right: 20px;
+    
+}
 }

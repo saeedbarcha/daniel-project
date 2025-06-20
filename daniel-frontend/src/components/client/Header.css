@@ -1,46 +1,36 @@
 /* === BASE STYLES === */
-.header-container {
+
+.container-client-header{
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
-  gap: 10px;
-  background: #0d1b2a;
+  padding: 10px 5px;
+  background-color: #0b0f13;
   width: 100%;
-
-   
 }
 
+/* width */
 
-
-.right-align {
-  justify-content: flex-end;
+.header-box{
+  width: 18%;
 }
 
+.header-same-size{
+  width: 42%;
+  /* display: flex; */
+}
 .header-img {
-      margin-left:450px;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
-
-
-/* === LARGE SCREENS (≥1023px) === */
-@media (max-width: 1024px) {
-  .header-img {
-      margin-left: 2px;
-  /* justify-content: center; */
-}
-
-
-
-
-}
 
 .desktop-logo {
   display: block;
   object-fit: contain;
-  /* margin-left: 200px; */
+
 }
 
 .mobile-logo {
@@ -65,38 +55,35 @@
 }
 
 .nav-wrapper {
-  width: 100%;
+  width: 35%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   position: relative;
 }
 
-/* === NAVIGATION BUTTONS === */
 .nav-sections {
-  display: none;
-  position: absolute;
-  top: -16px;
-  right: 10px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  padding: 12px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 270px;
+  background-color: #ffffff;
+  padding: 50px 20px;
   flex-direction: column;
-  gap: 8px;
-  z-index: 1000;
-  opacity: 0;
-  transform: translateY(-10px);
-  pointer-events: none;
-  transition: all 0.3s ease;
-  min-width: 180px;
+  gap: 10px;
+  z-index: 9999;
+  display: flex;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .nav-sections.open {
-  display: flex;
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+  transform: translateX(0);
 }
+
 
 .nav-sections button {
   padding: 6px 10px;
@@ -113,16 +100,51 @@
 }
 
 .nav-sections button:hover {
-  background-color: #0a0a1f;
+  background-color: #393942;
   color: #fff;
   transition: background-color 0.3s ease;
 }
 
-/* === SMALL SCREENS (<1023px) === */
-@media (max-width: 1022px) {
+.sidebar-close{
+  display: none;
+}
+
+.bar-image{
+  display: none;
+}
+
+@media (max-width: 1340px) {
   .welcome-text {
     display: none;
   }
+
+  .sidbar-image-header{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  /* .sidebar-close{
+  display: block;
+  cursor: pointer;
+  font-size: 28px;
+  background: none;
+  border: none;
+  width: 50px;
+  height: 50px;
+  padding: 4px 12px;
+
+} */
+/* .sidebar-close:hover{
+  background-color: rgb(204, 200, 219);
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  
+} */
+.bar-image{
+  display: block;
+  object-fit: cover;
+}
 
   .desktop-logo {
     display: none;
@@ -136,37 +158,32 @@
     display: block;
   }
 
-  .header-box {
-    flex: 1;
-    /* justify-content: center; */
-  }
-
-  .nav-wrapper {
-    justify-content: flex-end;
+    .nav-wrapper {
+    width: 35%;
   }
 }
 
-/* === LARGE SCREENS (≥1023px) === */
-@media (min-width: 1023px) {
-  .nav-wrapper {
-    position: static;
-    width: auto;
-  }
-
+@media (min-width: 1340px) {
   .nav-sections {
-    position: static;
     display: flex !important;
     flex-direction: row;
-    gap: 8px;
-    opacity: 1;
-    transform: none;
-    pointer-events: auto;
+    position: static;
+    height: auto;
+    width: auto;
+    transform: none !important;
     background: none;
     box-shadow: none;
     padding: 0;
+    gap: 10px;
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .menu-toggle {
     display: none;
   }
 }
+
+
+
+

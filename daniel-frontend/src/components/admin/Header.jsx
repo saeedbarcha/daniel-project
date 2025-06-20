@@ -4,7 +4,7 @@ import "./adminheader.css";
 
 const HeaderAdmin = () => {
   return (
-    <div className="header-container">
+    <div className="">
       <div>
         <h1>Admin Dashboard</h1>
       </div>

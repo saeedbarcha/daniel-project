@@ -37,6 +37,7 @@ const AssetsCard = ({ userData, isLoading, formatDate }) => {
 
   const handleImageClick = () => {
     setModalOpen(true);
+    window.scrollTo({top:80, behavior: 'smooth'})
   };
 
   const closeModal = () => {
