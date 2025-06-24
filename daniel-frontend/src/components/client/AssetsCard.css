@@ -3,6 +3,8 @@
   justify-content: center;
   align-items: center;
   padding: 30px;
+  flex-wrap: wrap; /* 🔧 allow cards to wrap on small screens */
+  gap: 20px; /* optional spacing between cards */
 }
 
 .card {
@@ -97,16 +99,24 @@
   border: none;
   cursor: pointer;
   z-index: 1100;
-  
 }
 
 /* === Responsive fallback === */
 @media (max-width: 768px) {
+  .assets-container {
+    padding: 5px;
+    /* optional spacing between cards */
+  }
   .card-sm,
   .card-md,
   .card-lg {
     width: 100%;
     height: auto;
+    padding: 15px; /* 🔧 Reduce padding on mobile */
+  }
+
+  .card {
+    min-height: 250px; /* 🔧 Ensure cards don’t shrink too small */
   }
 
   .modal-content img {
@@ -115,10 +125,9 @@
   }
 }
 
-@media (max-width: 778) {
-.modal-close-button {
-  top: 12px;
-  right: 20px;
-    
-}
+@media (max-width: 778px) {
+  .modal-close-button {
+    top: 12px;
+    right: 20px;
+  }
 }
