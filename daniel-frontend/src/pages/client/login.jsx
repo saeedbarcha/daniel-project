@@ -7,7 +7,7 @@ import { useLoginMutation } from "../../features/usersApiSlice";
 import { setCredentials } from "../../features/authSlice";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { motion } from "framer-motion"; // ✅ import motion
+import { motion } from "framer-motion"; 
 
 const ClientLogin = () => {
   const [inputData, setInputData] = useState({
@@ -51,13 +51,15 @@ const ClientLogin = () => {
 
   return (
     <div className="page-background">
-      <motion.form
-      style={{marginLeft: "-200px"}}
+      <motion.div
+       initial={{ opacity: 0, y: '100vh' }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: 'easeOut' }}
+ 
+      >
+      <form
         className="form-container"
         onSubmit={submitHandler}
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: -100 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <Heading heading="Login" />
 
@@ -84,7 +86,8 @@ const ClientLogin = () => {
         </div>
 
         <button className="btn btn-info">Login</button>
-      </motion.form>
+      </form>
+      </motion.div>
     </div>
   );
 };

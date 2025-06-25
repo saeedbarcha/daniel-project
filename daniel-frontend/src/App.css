@@ -161,8 +161,6 @@ body {
   }
 }
 
-
-
 .page-background {
   background-image: url('./assets/TRUMP.png');
   background-size: cover;
@@ -184,21 +182,18 @@ body {
   /* padding: 20px; */
 }
 
+
+
+
+
+@media screen and (max-width: 768px) {
+
 .page-background {
-  align-items: center;       /* centers vertically */
+  align-items: center;       
   background-image: url('./assets/TRUMP.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   padding: 20px;
 }
-
-.form-container {
-
-  background: white;
-  padding: 30px 40px;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 400px;
 }

@@ -96,18 +96,25 @@ const Header = () => {
             </div>
           </div>
 
-          <button>
+          <button onClick={()=> setIsMenuOpen(false)}>
             <FaStar /> Premium Payment Plan
           </button>
-          <button>
+          <button onClick={()=> setIsMenuOpen(false)}>
             <VscIssueReopened /> Regular Payment Plan
           </button>
-          <button>
+          <button onClick={()=> setIsMenuOpen(false)}>
             <AiFillMessage /> Contact Agent
           </button>
-          <button onClick={handleLogoutClick} disabled={isLoading}>
-            {isLoading ? "Logging out..." : "Logout"}
+          <button 
+              onClick={() => {
+                       handleLogoutClick();
+                       setIsMenuOpen(false);
+                      }} 
+                      disabled={isLoading}
+                   >
+              {isLoading ? "Logging out..." : "Logout"}
           </button>
+
         </div>
       </div>
     </div>
