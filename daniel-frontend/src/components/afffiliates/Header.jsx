@@ -12,9 +12,9 @@ const HeaderAffiliates = () => {
 
   return (
     <div className="affiliate-header">
-      <div className="">
+      <div className="header-welcome-text">
         <div>
-          <h1 className="ms-3">Client Management</h1>
+          <h1 className="">Client Management</h1>
         </div>
         
       </div>

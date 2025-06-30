@@ -3,8 +3,12 @@
   justify-content: center;
   align-items: center;
   padding: 30px;
-  flex-wrap: wrap; /* 🔧 allow cards to wrap on small screens */
-  gap: 20px; /* optional spacing between cards */
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 16px 0px;
+  background-color: white;
+  display: flex;
+  border-radius: 1rem;
 }
 .trumpcard-bg {
   background-image: url("../../assets/card.jpeg"); /* adjust if needed */
@@ -71,8 +75,8 @@
 
 .top-left-text {
   position: absolute;
-  top: 3px;
-  left: 1px;
+  top: 6px;
+  left: 6px;
   z-index: 2;
   background-color: white;
   padding: 10px 16px;
@@ -85,8 +89,8 @@
 }
 
 .trump-title {
-  font-size: 28px;
-  letter-spacing: 12px;
+  font-size: 15px;
+  letter-spacing: 5px;
   font-weight: 600;
   margin-bottom: 4px;
 }
@@ -105,20 +109,19 @@
 }
 
 .trump-subtitle {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 7px;
+  font-weight: 100;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
 .bottom-right-text {
   position: absolute;
-  bottom: 3px;
-  right: 3px;
-  font-size: 28px;
-  letter-spacing: 8px;
+  bottom: 6px;
+  right: 6px;
+  font-size: 22px;
+  letter-spacing: 7px;
   font-weight: 600;
-  margin-bottom: 4px;
   background-color: white;
   color: black;
   padding: 6px 10px;
@@ -151,7 +154,6 @@
   }
 }
 
-
 .card {
   background-color: #f8f9fa;
   border-radius: 12px;
@@ -167,7 +169,7 @@
 .card img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  /* object-fit: contain; */
   transition: transform 0.3s ease;
   border-radius: 8px;
 }
@@ -189,9 +191,9 @@
 }
 
 .card-md {
-  width: 520px;
+  width: 740px;
   height: 300px;
-  padding: 15px 60px;
+  padding: 25px;
 }
 
 .card-lg {
@@ -249,7 +251,7 @@
 /* === Responsive fallback === */
 @media (max-width: 768px) {
   .assets-container {
-    padding: 5px;
+    padding: 18px;
     margin-top: 15px;
     /* optional spacing between cards */
   }
@@ -259,12 +261,16 @@
     width: 100%;
     height: auto;
     padding: 15px; /* 🔧 Reduce padding on mobile */
+    object-fit: contain;
   }
 
-  .card {
-    min-height: 250px; /* 🔧 Ensure cards don’t shrink too small */
+  .card-md {
+    min-height: 200px; /* adjust as needed */
   }
 
+  .card-sm {
+    min-height: 300px; /* for Trump card */
+  }
   .modal-content img {
     max-width: 90vw;
     max-height: 90vh;
@@ -277,3 +283,45 @@
     right: 20px;
   }
 }
+
+@media (max-width: 508px) {
+  .card-md {
+    min-height: 157px; /* adjust as needed */
+  }
+
+  .card-sm {
+    min-height: 143px; /* for Trump card */
+  }
+}
+
+@media (max-width: 510px) {
+  
+.top-left-text {
+  top: 2px;
+  left: 2px;
+  padding: 1px;
+}
+
+.trump-title {
+  font-size: 15px;
+  letter-spacing: 3px;
+  font-weight: 200;
+  margin-bottom: 4px;
+}
+
+.trump-subtitle {
+  font-size: 7px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.bottom-right-text {
+  bottom: 2px;
+  right: 2px;
+  font-size: 18px;
+  letter-spacing: 7px;
+  font-weight: 600;
+}
+}
+

@@ -4,9 +4,9 @@ import "./adminheader.css";
 
 const HeaderAdmin = () => {
   return (
-    <div className="">
+    <div className="header-welcome-text">
       <div>
-        <h1 className="ms-3">Admin Dashboard</h1>
+        <h1 className="">Admin Dashboard</h1>
       </div>
     </div>
   );
