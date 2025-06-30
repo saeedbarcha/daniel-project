@@ -11,9 +11,7 @@
 
 /* width */
 
-.header-box{
-  width: 18%;
-}
+
 
 .header-same-size{
   width: 42%;
@@ -50,7 +48,6 @@
 .welcome-text {
   color: white;
   font-size: 18px;
-  text-align: center;
   width: 100%;
 }
 

@@ -14,7 +14,7 @@ const HeaderAffiliates = () => {
     <div className="affiliate-header">
       <div className="">
         <div>
-          <h1>Client Management</h1>
+          <h1 className="ms-3">Client Management</h1>
         </div>
         
       </div>

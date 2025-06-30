@@ -4,3 +4,16 @@
     margin-top: 2rem;
     padding: 1rem;
 }
+
+@media screen and (max-width: 468px) {
+
+    thead,
+    th {
+        font-size: 0.7rem;
+    }
+
+    thead,
+    td {
+        font-size: 0.5rem;
+    }
+}
