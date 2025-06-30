@@ -286,7 +286,7 @@
 
 @media (max-width: 508px) {
   .card-md {
-    min-height: 157px; /* adjust as needed */
+    min-height: 120px; /* adjust as needed */
   }
 
   .card-sm {
