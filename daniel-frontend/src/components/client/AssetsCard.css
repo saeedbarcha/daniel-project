@@ -1,14 +1,16 @@
 .assets-container {
+  margin-top: 185px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px;
   flex-wrap: wrap;
   gap: 20px;
-  margin: 16px 0px;
+  /* margin: 16px 0px; */
   background-color: white;
   display: flex;
   border-radius: 1rem;
+
 }
 .trumpcard-bg {
   background-image: url("../../assets/card.jpeg"); /* adjust if needed */

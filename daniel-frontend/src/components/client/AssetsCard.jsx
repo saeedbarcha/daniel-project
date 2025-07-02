@@ -62,16 +62,16 @@ const AssetsCard = ({ userData, isLoading, formatDate }) => {
         {userData?.payment_source === "TRUMP_CARD" && (
           <>
             <div className="card-text-overlay">
-              <div className="top-left-text">
+              {/* <div className="top-left-text">
                 <div className="trump-title">T R U M P</div>
                 <div className="trump-subtitle-container">
                   <hr />
                   <div className="trump-subtitle">THE TRUMP ORGANIZATION</div>
                   <hr />
                 </div>
-              </div>
+              </div> */}
 
-              <div className="bottom-right-text">VISA</div>
+              {/* <div className="bottom-right-text">VISA</div> */}
             </div>
             <div className="card-shine" />
           </>
