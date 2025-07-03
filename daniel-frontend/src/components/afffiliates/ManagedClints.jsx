@@ -7,7 +7,7 @@ const ManagedClints = () => {
   const { startEdit } = useContext(ClientContext);
   const { data: clients, isLoading, isError, error } = useGetClientsQuery();
 
-  
+
   const handleEdit = (client) => {
     startEdit(client);
     window.scrollTo({ top: 0, behavior: "smooth" });

@@ -48,11 +48,10 @@ const AssetsCard = ({ userData, isLoading, formatDate }) => {
   const cardSizeClass = getCardSizeClass();
 
   return (
-    <div className="assets-container">
+    <div className={`assets-container ${userData?.payment_source === "TRUMP_CERTIFICATE" ? "assets-container-certificate" : ""}`}>
       <div
-        className={`card ${cardSizeClass} ${
-          userData?.payment_source === "TRUMP_CARD" ? "trumpcard-bg" : ""
-        }`}
+        className={`card ${cardSizeClass} ${userData?.payment_source === "TRUMP_CARD" ? "trumpcard-bg" : ""
+          }`}
         onClick={handleImageClick}
       >
         {userData?.payment_source !== "TRUMP_CARD" && (

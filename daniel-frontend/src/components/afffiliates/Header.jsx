@@ -8,15 +8,13 @@ const HeaderAffiliates = () => {
   const { userInfo } = useSelector((state) => state.auth);
 
 
- 
-
   return (
     <div className="affiliate-header">
       <div className="header-welcome-text">
         <div>
           <h1 className="">Client Management</h1>
         </div>
-        
+
       </div>
       <div className="header-welcome-text">
         <h4>

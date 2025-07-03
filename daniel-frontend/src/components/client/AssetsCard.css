@@ -1,5 +1,5 @@
 .assets-container {
-  margin-top: 185px;
+  margin-top: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,15 +10,24 @@
   background-color: white;
   display: flex;
   border-radius: 1rem;
+  min-height: 500px;
 
 }
+
+.assets-container-certificate {
+  background-color: transparent;
+}
+
 .trumpcard-bg {
-  background-image: url("../../assets/card.jpeg"); /* adjust if needed */
+  background-image: url("../../assets/card.jpeg");
+  /* adjust if needed */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  position: relative; /* ensures overlay positions correctly */
+  position: relative;
+  /* ensures overlay positions correctly */
 }
+
 .trumpcard-bg::before {
   content: "";
   position: absolute;
@@ -26,7 +35,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.2); /* soft dark layer */
+  background: rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 12px;
 }
@@ -40,7 +49,8 @@
   color: white;
   font-family: "Arial", sans-serif;
   font-weight: bold;
-  pointer-events: none; /* Allow clicks to pass through */
+  pointer-events: none;
+  /* Allow clicks to pass through */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -54,12 +64,10 @@
   left: -100%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0) 30%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0) 70%
-  );
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 70%);
   transform: rotate(25deg);
   animation: shine 2.5s infinite linear;
   z-index: 1;
@@ -70,6 +78,7 @@
   from {
     transform: translate(-100%, -100%) rotate(25deg);
   }
+
   to {
     transform: translate(100%, 100%) rotate(25deg);
   }
@@ -132,6 +141,13 @@
 }
 
 @media (max-width: 768px) {
+
+  .assets-container {
+
+    min-height: 300px;
+
+  }
+
   .top-left-text {
     padding: 6px 10px;
     font-size: 14px;
@@ -232,7 +248,7 @@
 
 .modal-content img {
   max-width: 40vw;
-  max-height: 100vh;
+  max-height: 90vh;
   border-radius: 10px;
   display: block;
 }
@@ -257,22 +273,27 @@
     margin-top: 15px;
     /* optional spacing between cards */
   }
+
   .card-sm,
   .card-md,
   .card-lg {
     width: 100%;
     height: auto;
-    padding: 15px; /* 🔧 Reduce padding on mobile */
+    padding: 15px;
+    /* 🔧 Reduce padding on mobile */
     object-fit: contain;
   }
 
   .card-md {
-    min-height: 200px; /* adjust as needed */
+    min-height: 200px;
+    /* adjust as needed */
   }
 
   .card-sm {
-    min-height: 300px; /* for Trump card */
+    min-height: 300px;
+    /* for Trump card */
   }
+
   .modal-content img {
     max-width: 90vw;
     max-height: 90vh;
@@ -287,43 +308,91 @@
 }
 
 @media (max-width: 508px) {
+
+  .assets-container {
+
+    min-height: 250px;
+
+  }
+
   .card-md {
-    min-height: 120px; /* adjust as needed */
+    min-height: 120px;
+    /* adjust as needed */
   }
 
   .card-sm {
-    min-height: 143px; /* for Trump card */
+    min-height: 143px;
+    /* for Trump card */
+  }
+
+  .modal-close-button {
+    top: 5px;
+    right: 5px;
   }
 }
 
 @media (max-width: 510px) {
-  
-.top-left-text {
-  top: 2px;
-  left: 2px;
-  padding: 1px;
+
+  .top-left-text {
+    top: 2px;
+    left: 2px;
+    padding: 1px;
+  }
+
+  .trump-title {
+    font-size: 15px;
+    letter-spacing: 3px;
+    font-weight: 200;
+    margin-bottom: 4px;
+  }
+
+  .trump-subtitle {
+    font-size: 7px;
+    font-weight: 100;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .bottom-right-text {
+    bottom: 2px;
+    right: 2px;
+    font-size: 18px;
+    letter-spacing: 7px;
+    font-weight: 600;
+  }
 }
 
-.trump-title {
-  font-size: 15px;
-  letter-spacing: 3px;
-  font-weight: 200;
-  margin-bottom: 4px;
+@media (max-width: 425px)and(min-width:320px) {
+  .modal-close-button {
+    top: 3px;
+    right: 3px;
+  }
 }
 
-.trump-subtitle {
-  font-size: 7px;
-  font-weight: 100;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+/* background text */
+
+@media (max-width: 1024px) {
+  .assets-container {
+    margin-top: 700px;
+    height: max-content;
+
+  }
+
 }
 
-.bottom-right-text {
-  bottom: 2px;
-  right: 2px;
-  font-size: 18px;
-  letter-spacing: 7px;
-  font-weight: 600;
-}
-}
+/* 
+@media (max-width: 768px) {
+  .assets-container {
+    margin-top: 700px;
+    height: max-content;
+  }
+ 
+} */
 
+@media(max-width:425px) {
+  .assets-container {
+
+    min-height: 200px;
+
+  }
+}
